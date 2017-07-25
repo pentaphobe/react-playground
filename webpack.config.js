@@ -20,7 +20,7 @@ module.exports = {
 
 		'webpack/hot/only-dev-server',
 
-		'./src/client/index.js',
+		'./src/client/index.jsx',
 	],
 
 	output: {
