@@ -2,13 +2,47 @@ import React, {
 	PureComponent
 	} from 'react';
 
+import { mapProps } from 'Recompose';
 import Button from 'components/Button';
 import Section from 'components/Section';
-import SectionHero from 'components/containers/SectionHero';
-import {SectionLink, SectionLinks} from 'components/containers/SectionLinks';
-import SectionFeature from 'components/containers/SectionFeature';
 
-const styles = {
+/**
+ * Generic project `Theme`
+ * Creates "raw elements" for styling
+ */
+const Theme = ({
+	fontRatio=1.3
+} = {}) => ({
+	primaryColour: '#f0f',
+	secondaryColour: '#ff0',
+	fontSize: 20,					// px
+	fontScales: [
+		1 / fontRatio,
+		1,
+		fontRatio,
+		fontRatio * fontRatio
+	]
+})({
+	fontRatio: 1.2
+});
+
+const View = ({theme}) => ({
+	p: {
+		fontSize: theme.fontSize * theme.fontScales[1]
+	},
+	h1: {
+		fontSize: theme.fontSize * theme.fontScales[3]
+	}
+});
+
+console.log(View({theme:{fontSize:2, fontScales:[1,2,3,4]}}));
+
+const viewInstance = View({theme:Theme()});
+
+console.log(viewInstance);
+console.log(view({theme:{fontSize:2, fontScales:[1,2,3,4]}}));
+
+const styles = {	
 	section: {
 		padding: 10,
 		background: '#eee',
@@ -21,46 +55,19 @@ const styles = {
 
 		container: {
 			margin: 5,
-			padding: 5,
+			padding: 15,
 			background: '#d8d8d8'
 		}
-	}
+	},
+	...viewInstance
 };
-
-const heroProps = {
-	class: 'section-hero--product',
-	style: styles.section,
-	header: {
-		text: 'Big header',
-		class: 'big-header'
-	},
-	subheader: {
-		text: 'Sub header'
-	},
-	button: {
-		text: 'Get started',
-		style: {
-			borderRadius: 16,
-			border: '2px solid #000',
-			padding: 8
-		}
-	},
-	link: {
-		style: {
-			width: '23%',
-			display: 'inline-block'
-		}
-	}
-};
-
 
 export default class App extends PureComponent {
 	constructor() {
 		super();
 		this.state = {
 			timer: 0
-		};
-		
+		};		
 	}
 
 	componentDidMount() {
@@ -80,30 +87,18 @@ export default class App extends PureComponent {
 	render() {
 		return (
 			<div>				
+				<Section style={styles.section} title="component taxonomy">
+					{/*
+						composed button guy goes here 
+					*/}
+				</Section>
+
 				<Section style={styles.section} title="basic setup: done">
 					<h2>{this.state.timer}</h2>			
-					<p>Container things</p>
+					<p style={styles.p}>Container things</p>
 					<p>Make for scary magic</p>
 					<p>But hell, sue me</p>
 				</Section>
-				<SectionHero {...heroProps} />
-				<SectionLinks {...heroProps} >
-					<SectionLink icon="compare">Compare the market</SectionLink>
-					<SectionLink icon="compare">Compare the market</SectionLink>
-					<SectionLink icon="compare">Compare the market</SectionLink>
-					<SectionLink icon="compare">Compare the market</SectionLink>
-					
-					<SectionLink icon="compare">Compare the market</SectionLink>
-					<SectionLink icon="compare">Compare the market</SectionLink>
-					<SectionLink icon="compare">Compare the market</SectionLink>
-					<SectionLink icon="compare">Compare the market</SectionLink>
-				</SectionLinks>
-				<SectionFeature>
-					{/* assumes content is just rich text */}
-					<h1>Property guidance</h1>
-					<p>lorem ipsum dolor sit amet thigny stuff</p>
-					<Button text="Request a report" />
-				</SectionFeature>
 			</div>
 		);
 	}
