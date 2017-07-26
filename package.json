@@ -10,7 +10,8 @@
   "repository": "https://kolsen@bitbucket.mirum.agency/scm/hwmel/react-environment-greenfield.git",
   "author": "Keilin Olsen <keilin.olsen@heathwallace.com> (http://heathwallace.com/)",
   "license": "ISC",
-  "dependencies": {    
+  "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "recompose": "^0.24.0",
@@ -20,7 +21,6 @@
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-plugin-null-safe-accessor": "^0.1.2",    
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
