@@ -5,7 +5,6 @@
 	],
 	'plugins': [
 		'react-hot-loader/babel',
-		'transform-object-rest-spread',
-		'null-safe-accessor'
+		'transform-object-rest-spread'
 	]
 }

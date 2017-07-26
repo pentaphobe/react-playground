@@ -2,20 +2,52 @@
 
 ## Installation
 
-Should just be a matter of `yarn install`
+Should just be a matter of `yarn`
 
 ## Running
 
 `yarn start`
 
+
+
+
 # Progress
 
 ## Features
 
+(Constantly re-prioritised, ever growing)
+
+- [ ] Better naming for taxonomy!
+- [ ] Balance between styled-components theming and proposed architecture
+- [ ] Input element example
+    - [ ] Base theme
+    - [ ] Simple theme
+    - [ ] "Material" theme
+- [ ] Test assumptions re. how we sync items
+- [ ] Establish core table of useful core variables for themes
+    - [ ] As close to design language as possible
+    - [ ] Assume consistent rhythms, but allow for ad-hoc
+- [ ] How do we safely isolate versions?
+- [ ] Base set of use cases for component composition
+    - [ ] conditional rendering (obviously)
+    - [ ] functionality vs. anim vs. theme(s) vs. structural overrides
+- [ ] prop-type examples for props vs. children
 - [x] HMR Webpack setup with decent module pathing
 - [ ] CSS & SASS loader
     - [ ] Opinionated guide for stylesheet vs. style include and avoiding collisions
-- [ ] Well-defined interface for nested container rendering and prop inheritance
+- [x] Well-defined interface for nested container rendering and prop inheritance
+
+
+# Taxonomy
+
+## Problem statement
+
+- [ ] Maximise shared code
+- [ ] Progressive enhancement (not in the normal sense)
+    - [ ] Distinguish between:
+        - [ ] UI business logic (eg. validation, model updates on events)
+        - [ ] UI interface logic (eg. triggering animations - disposable)
+
 
 # Changelog
 
@@ -30,7 +62,10 @@ Following / Referencing:
 - https://github.com/erikras/react-redux-universal-hot-example
 
 
-Actions (dear Diary...):
+
+
+
+# Actions (dear Diary...):
 
 - `yarn init`
 - `yarn add webpack webpack-dev-server path --dev`

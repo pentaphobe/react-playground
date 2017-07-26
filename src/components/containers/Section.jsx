@@ -4,7 +4,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SectionHeading = styled.h1`
+const SectionHeadingBase = styled.h1`
 	background: #eee;
 	padding: 5px;
 `;
@@ -49,17 +49,13 @@ const container = (El) => (props) => (
 // 	</Wrapper>
 // );
 
-const SectionWithHeading = container(SectionWithHeading);
+const SectionWithHeading = container(Section);
 
-const SectionFancy = (props) => (
+export {Section};
+
+export default (props) => (
 	<SectionWithHeading>
-		<SectionHeading>{props.title}</SectionHeading>
-		<SectionBody>
-			{props.children}
-		</SectionBody>
+		<SectionHeadingBase>{props.title}</SectionHeadingBase>
+		{props.children}
 	</SectionWithHeading>
 );
-
-export {Section, SectionFancy};
-
-
